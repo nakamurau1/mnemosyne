@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       # 保存の成功をここで扱う。
       flash[:success] = "Welcome to the Sample App!"
+      login @user
       redirect_to @user
     else
       render 'new'
