@@ -12,10 +12,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(_user_params)    # 実装は終わっていないことに注意!
+    @user = User.new(_user_params)
     if @user.save
       UserMailer.account_activation(@user).deliver_now
-      flash[:info] = "Please check your email to activate your account."
+      flash[:info] = "アカウント有効化メールを確認してください"
       redirect_to root_url
     else
       render 'new'
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   def update 
     @user = User.find_by(id: params[:id])
     if @user.update_attributes(_user_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = "プロフィールが更新されました！"
       redirect_to @user
     else
       render 'edit'
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find_by(id: params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:success] = "ユーザーが削除されました"
     redirect_to root_path
   end
 
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   def _logged_in_user
     unless logged_in?
       store_location
-      flash[:danger] = "Please log in."
+      flash[:danger] = "ログインしてください"
       redirect_to login_url
     end
   end
