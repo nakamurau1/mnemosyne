@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :_logged_in_user, only: [:index, :show, :new, :create]
+
   def index
   end
 
@@ -22,5 +24,13 @@ class ItemsController < ApplicationController
 
     def _item_params
       params.require(:item).permit(:front_text, :back_text)
+    end
+
+    def _logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "ログインしてください"
+        redirect_to login_url
+      end
     end
 end
