@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :_logged_in_user, only: [:index, :show, :new, :create, :edit]
 
   def index
+    @items = current_user.items.paginate(page: params[:page])
   end
 
   def show
@@ -23,7 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.find(params[:id])
+    @item = current_user.items.build
   end
 
   def create
