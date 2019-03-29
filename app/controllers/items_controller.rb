@@ -41,11 +41,4 @@ class ItemsController < ApplicationController
       params.require(:item).permit(:front_text, :back_text)
     end
 
-    def _logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "ログインしてください"
-        redirect_to login_url
-      end
-    end
 end
