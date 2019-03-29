@@ -1,9 +1,2 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  front_text: MyText
-  back_text: MyText
-
-two:
-  front_text: MyText
-  back_text: MyText

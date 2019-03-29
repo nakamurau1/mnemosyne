@@ -1,14 +1,29 @@
 class ItemsController < ApplicationController
-  before_action :_logged_in_user, only: [:index, :show, :new, :create]
+  before_action :_logged_in_user, only: [:index, :show, :new, :create, :edit]
 
   def index
   end
 
   def show
+    @item = Item.find(params[:id])
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update_attributes(_item_params)
+      flash[:success] = "更新されました！"
+      redirect_to root_path
+    else
+      render 'edit'
+    end
   end
 
   def new
-    @item = Item.new
+    @item = Item.find(params[:id])
   end
 
   def create
