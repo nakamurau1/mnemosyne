@@ -82,6 +82,7 @@ footer {
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
   color: gray;
+  font-size: 0.8rem;
   a {
     color: gray;
     &:hover {
@@ -181,7 +182,6 @@ input {
   margin-top: -10px;
   margin-bottom: 10px;
   span {
-    margin-left: 20px;
     font-weight: normal;
   }
 }
