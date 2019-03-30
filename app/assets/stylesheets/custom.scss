@@ -12,8 +12,8 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
-body {
-  padding-top: 60px;
+html {
+  font-size: 12px;
 }
 
 section {
@@ -108,6 +108,8 @@ footer {
   float: left;
   width: 100%;
   margin-top: 45px;
+  background: lightgray;
+  font-size: 0.8rem;
   @include box_sizing;
 }
 
