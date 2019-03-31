@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-12 mx-auto item" id ="item-<%= item.id %>">
     <span class="content"><%= item.front_text %></span>
+    <i class="fas fa-angle-down angle"></i>
     <span class="timestamp">
       Posted <%= time_ago_in_words(item.created_at) %> ago.
     </span>
