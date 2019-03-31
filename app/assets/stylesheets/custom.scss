@@ -191,7 +191,12 @@ input {
 
 .item {
   padding: 10px 0;
-  .content {
+  .front-text {
+    display: block;
+    height: 60px;
+    margin-left: 30px;
+  }
+  .back-text {
     display: block;
     height: 60px;
     margin-left: 30px;
