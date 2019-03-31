@@ -1,6 +1,8 @@
-<li id="micropost-<%= item.id %>">
-  <span class="content"><%= item.front_text %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(item.created_at) %> ago.
-  </span>
-</li>
+<div class="row">
+  <div class="col-12 mx-auto item" id ="item-<%= item.id %>">
+    <span class="content"><%= item.front_text %></span>
+    <span class="timestamp">
+      Posted <%= time_ago_in_words(item.created_at) %> ago.
+    </span>
+  </div>
+</div>
