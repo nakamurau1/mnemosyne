@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-12 mx-auto item" id ="item-<%= item.id %>">
+  <div class="col-10 mx-auto item" id ="item-<%= item.id %>">
     <span class="front-text"><%= item.front_text %></span>
     <i class="fas angle collapsed" data-toggle="collapse" data-target="#collapse-item-<%= item.id %>"></i>
     <div class="collapse" id="collapse-item-<%= item.id %>">
@@ -7,8 +7,11 @@
         <%= item.back_text %>
       </span>
     </div>
+    <span class="edit-icon">
+      <i class="far fa-edit">編集</i>
+    </span>
     <span class="timestamp">
-      Posted <%= time_ago_in_words(item.created_at) %> ago.
+      <%= item.created_at.strftime("%Y/%m/%d") %>
     </span>
   </div>
 </div>

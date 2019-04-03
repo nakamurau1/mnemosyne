@@ -194,12 +194,10 @@ input {
   .front-text {
     display: block;
     height: 60px;
-    margin-left: 30px;
   }
   .back-text {
     display: block;
     height: 60px;
-    margin-left: 30px;
   }
   .angle {
     text-align: center;
@@ -216,8 +214,7 @@ input {
   }
   .timestamp {
     color: gray;
-    display: block;
-    text-align: right;
-    margin-right: 30px;
+    display: inline-block;
+    float: right;
   }
 }
