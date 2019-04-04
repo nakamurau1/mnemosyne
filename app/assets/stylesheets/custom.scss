@@ -189,6 +189,17 @@ input {
   margin-left: 0;
 }
 
+.item-delete-link {
+  float: right;
+  color: red;
+  margin-top: 1rem;
+}
+a.item-delete-link {
+  text-decoration: none;
+}
+
+/* items list */
+
 .item {
   padding: 10px 0;
   .front-text {

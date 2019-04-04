@@ -36,7 +36,12 @@ class ItemsController < ApplicationController
     end
   end
 
-  private
+  def destroy
+    Item.find(params[:id]).destroy
+    redirect_to root_path
+  end
+
+private
 
     def _item_params
       params.require(:item).permit(:front_text, :back_text)
