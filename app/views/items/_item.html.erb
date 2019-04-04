@@ -7,9 +7,7 @@
         <%= item.back_text %>
       </span>
     </div>
-    <span class="edit-icon">
-      <i class="far fa-edit">編集</i>
-    </span>
+    <%= link_to "編集", edit_item_path(item), class: "far fa-edit" %>
     <span class="timestamp">
       <%= item.created_at.strftime("%Y/%m/%d") %>
     </span>
