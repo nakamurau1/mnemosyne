@@ -231,4 +231,14 @@ a.item-delete-link {
   a {
     text-decoration: none;
   }
+  .review-btn {
+    text-align: right;
+    margin-bottom: 10px;
+    display: inline-flex;
+    .again, .good, .easy {
+      width: 90px;
+      font-size: 15px;
+      margin-left: 10px;
+    }
+  }
 }
