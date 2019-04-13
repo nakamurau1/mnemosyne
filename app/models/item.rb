@@ -1,5 +1,4 @@
 class Item < ApplicationRecord
-  after_initialize :_set_default_value
   belongs_to :user
   validates :user_id, presence: true
 
@@ -9,14 +8,39 @@ class Item < ApplicationRecord
   }
 
   def review(quality)
-    self.review_count += 1
-    self.next_review_date = calc_next_review_date(quality.to_sym, self.previous_review_date)
-    self.previous_review_date = Time.zone.today
+    self.next_review_datetime = calc_next_review_datetime(quality.to_sym)
+    self.previous_review_datetime = Time.zone.now
     self.easiness_factor = @new_easiness_factor
+    self.review_count += 1
     save
   end
 
-  def calc_next_review_date(quality, previous_review_date)
+  def calc_next_review_datetime(quality)
+    if learning_step == 1
+      case quality
+        when :easy
+          self.learning_step = 3
+          return 4.days.after
+        when :good
+          self.learning_step = 2
+          return 10.minutes.after
+        when :again
+          return 1.minute.after
+      end
+    elsif learning_step == 2
+      case quality
+        when :easy
+          self.learning_step = 3
+          return 4.days.after
+        when :good
+          self.learning_step = 3
+          return 2.day.after
+        when :again
+          self.learning_step = 1
+          return 1.minutes.after
+      end
+    end
+
     case quality
       when :easy
         @new_easiness_factor = _calc_easiness_factor(self.easiness_factor, quality)
@@ -27,15 +51,11 @@ class Item < ApplicationRecord
         @new_easiness_factor = self.easiness_factor
         return Time.zone.today
     end
-    interval = _calc_interval(Time.zone.today, previous_review_date)
+    interval = _calc_interval(Time.zone.today, self.previous_review_datetime)
     Time.zone.today + (interval * @new_easiness_factor)
   end
 
   private
-
-    def _set_default_value
-      self.next_review_date = Time.zone.today
-    end
 
     def _calc_easiness_factor(current_value, quality)
       grade = GRADE[quality]
@@ -47,7 +67,7 @@ class Item < ApplicationRecord
       end
     end
 
-  def _calc_interval(today, previous_review_date)
-    today - previous_review_date
+  def _calc_interval(today, previous_review_datetime)
+    today - previous_review_datetime
   end
 end
