@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 20190413060649) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "easiness_factor"
+    t.float "easiness_factor", default: 2.5
     t.date "next_review_date"
     t.date "previous_review_date"
-    t.integer "review_count"
+    t.integer "review_count", default: 0
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
