@@ -27,6 +27,7 @@ class Item < ApplicationRecord
           self.learning_step = 2
           return 10.minutes.after
         when :again
+          self.learning_step = 1
           return 1.minute.after
       end
     elsif learning_step == 2
@@ -50,10 +51,11 @@ class Item < ApplicationRecord
         # easiness_factor は更新しない
         @new_easiness_factor = self.easiness_factor
       when :again
+        self.learning_step = 1
         @new_easiness_factor = self.easiness_factor
         return Time.zone.today
     end
-    interval = _calc_interval(Time.zone.today, self.previous_review_datetime)
+    interval = (Time.zone.today - self.previous_review_datetime.to_s.to_date).to_i
     Time.zone.today + (interval * @new_easiness_factor).ceil
   end
 
@@ -73,8 +75,4 @@ class Item < ApplicationRecord
         new_value
       end
     end
-
-  def _calc_interval(today, previous_review_datetime)
-    today - previous_review_datetime
-  end
 end
