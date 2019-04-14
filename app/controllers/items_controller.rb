@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :_logged_in_user, only: [:index, :show, :new, :create, :edit, :review]
 
   def index
-    @items = current_user.review_items.paginate(page: params[:page])
+    @items = current_user.items.paginate(page: params[:page])
   end
 
   def show
