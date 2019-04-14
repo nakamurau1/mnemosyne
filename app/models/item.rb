@@ -54,7 +54,7 @@ class Item < ApplicationRecord
         return Time.zone.today
     end
     interval = _calc_interval(Time.zone.today, self.previous_review_datetime)
-    Time.zone.today + (interval * @new_easiness_factor)
+    Time.zone.today + (interval * @new_easiness_factor).ceil
   end
 
   private
