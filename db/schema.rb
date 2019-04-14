@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20190413060649) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "easiness_factor", default: 2.5
+    t.float "easiness_factor"
     t.datetime "next_review_datetime"
     t.datetime "previous_review_datetime"
     t.integer "review_count", default: 0

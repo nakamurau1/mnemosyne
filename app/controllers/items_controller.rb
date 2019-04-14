@@ -43,8 +43,12 @@ class ItemsController < ApplicationController
 
   def review
     quality = params[:quality]
-    item = Item.find(params[:item_id])
-    item.review(quality)
+    @item = Item.find(params[:item_id])
+    @item.review(quality)
+    respond_to do |format|
+      format.html {redirect_to root_path}
+      format.js
+    end
   end
 
 private
