@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
     if logged_in?
-      @items = current_user.items.paginate(page: params[:page])
+      @items = current_user.review_items.paginate(page: params[:page])
     end
   end
 

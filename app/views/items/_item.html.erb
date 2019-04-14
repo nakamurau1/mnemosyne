@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-10 mx-auto item" id ="item-<%= item.id %>">
+<div class="row" id ="item-<%= item.id %>">
+  <div class="col-10 mx-auto item">
     <span class="front-text"><%= item.front_text %></span>
     <i class="fas angle collapsed" data-toggle="collapse" data-target="#collapse-item-<%= item.id %>"></i>
     <div class="collapse" id="collapse-item-<%= item.id %>">
@@ -7,9 +7,9 @@
         <%= item.back_text %>
       </span>
       <div class="review-btn">
-        <%= button_to "もう一度", items_review_path(quality: :again, item_id: item.id), class: "btn btn-danger again" %>
-        <%= button_to "普通", items_review_path(quality: :good, item_id: item.id), class: "btn btn-primary good" %>
-        <%= button_to "簡単", items_review_path(quality: :easy, item_id: item.id), class: "btn btn-success easy" %>
+        <%= button_to "もう一度", items_review_path(quality: :again, item_id: item.id), remote: true, class: "btn btn-danger again" %>
+        <%= button_to "普通", items_review_path(quality: :good, item_id: item.id), remote: true, class: "btn btn-primary good" %>
+        <%= button_to "簡単", items_review_path(quality: :easy, item_id: item.id), remote: true, class: "btn btn-success easy" %>
       </div>
     </div>
     <%= link_to "編集", edit_item_path(item), class: "far fa-edit" %>

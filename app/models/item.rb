@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  after_initialize :_set_default_value
   belongs_to :user
   validates :user_id, presence: true
 
@@ -16,6 +17,7 @@ class Item < ApplicationRecord
   end
 
   def calc_next_review_datetime(quality)
+    @new_easiness_factor = self.easiness_factor
     if learning_step == 1
       case quality
         when :easy
@@ -56,6 +58,10 @@ class Item < ApplicationRecord
   end
 
   private
+
+    def _set_default_value
+      self.easiness_factor = 2.5
+    end
 
     def _calc_easiness_factor(current_value, quality)
       grade = GRADE[quality]
