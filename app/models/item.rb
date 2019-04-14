@@ -61,6 +61,7 @@ class Item < ApplicationRecord
 
     def _set_default_value
       self.easiness_factor = 2.5
+      self.next_review_datetime = Time.zone.now
     end
 
     def _calc_easiness_factor(current_value, quality)
