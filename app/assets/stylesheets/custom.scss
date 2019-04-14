@@ -87,15 +87,13 @@ footer {
       color: gray;
     }
   }
-  small {
+  .author {
     float: left;
   }
-  ul {
+  .links {
     float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 15px;
+    a {
+      text-decoration: none;
     }
   }
 }
@@ -232,7 +230,6 @@ a.item-delete-link {
     text-decoration: none;
   }
   .review-btn {
-    text-align: right;
     margin-bottom: 10px;
     display: inline-flex;
     .again, .good, .easy {
