@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  after_initialize :_set_default_value
+  after_initialize :_set_default_value, if: :new_record?
   belongs_to :user
   validates :user_id, presence: true
 
