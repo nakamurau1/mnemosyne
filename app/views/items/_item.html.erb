@@ -16,7 +16,7 @@
     </div>
     <%= link_to "編集", edit_item_path(item), class: "far fa-edit" %>
     <span class="timestamp">
-      <%= item.created_at.strftime("%Y/%m/%d") %>
+      次回復習日時：<%= item.next_review_datetime.strftime("%Y/%m/%d %H:%M") %>
     </span>
   </div>
 </div>
