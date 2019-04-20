@@ -224,6 +224,9 @@ a.item-delete-link {
   .angle.collapsed:after {
     content: "\f107";
   }
+  .edit-menu {
+    font-size: 0.8rem;
+  }
   .timestamp {
     color: gray;
     display: inline-block;
