@@ -1,7 +1,7 @@
 module ApplicationHelper
   # ページごとの完全なタイトルを返す
   def full_title(page_title = '')
-    base_title = "Mnemosyne"
+    base_title = "暗記くん"
     if page_title.empty?
       base_title
     else
