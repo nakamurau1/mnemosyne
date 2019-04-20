@@ -203,11 +203,13 @@ a.item-delete-link {
   padding: 10px 0;
   .front-text {
     display: block;
-    height: 60px;
+    height: auto;
+    margin: 10px 0px;
   }
   .back-text {
     display: block;
-    height: 60px;
+    height: auto;
+    margin: 10px 0px 20px 0px;
   }
   .angle {
     text-align: center;
