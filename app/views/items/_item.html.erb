@@ -19,7 +19,7 @@
     </div>
     <%= link_to "編集", edit_item_path(item), class: "far fa-edit edit-menu" %>
     <span class="timestamp">
-      次回復習日時：<%= item.next_review_datetime.strftime("%Y/%m/%d %H:%M") %>
+      次回復習日：<%= item.next_review_timing_str %>
     </span>
   </div>
 </div>
