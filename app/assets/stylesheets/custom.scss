@@ -258,3 +258,10 @@ a.item-delete-link {
   text-align: center;
 }
 
+.new-item-button {
+  position: fixed;
+  font-size: 60px;
+  bottom: 50px;
+  right: 10px;
+  z-index: 100;
+}

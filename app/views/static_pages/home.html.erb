@@ -15,5 +15,6 @@
       次の復習日は <span id="js-next-review-datetime"></span> です
     </div>
   </div>
+  <%= link_to "", new_item_path(current_user), class: "fas fa-plus-circle new-item-button" %>
   <%= render 'shared/item' %>
 <% end %>
