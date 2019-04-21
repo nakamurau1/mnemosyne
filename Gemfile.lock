@@ -40,6 +40,10 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
+    airbrake (9.1.0)
+      airbrake-ruby (~> 4.2)
+    airbrake-ruby (4.2.5)
+      rbtree3 (~> 0.5)
     arel (8.0.0)
     autoprefixer-rails (9.5.0)
       execjs
@@ -155,6 +159,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    rbtree3 (0.5.0)
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
     sass (3.7.3)
@@ -221,6 +226,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake (~> 9.1)
   bcrypt (~> 3.1.7)
   bootstrap
   capybara (~> 2.13)
