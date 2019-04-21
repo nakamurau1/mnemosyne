@@ -10,5 +10,10 @@
     <%= link_to "今すぐ登録する", signup_path, class: "btn btn-lg btn-primary" %>
   </div>
 <% else %>
+  <div id="toast" class="toast" data-delay="2000" role="status">
+    <div class="toast-body">
+      次の復習日は <span id="js-next-review-datetime"></span> です
+    </div>
+  </div>
   <%= render 'shared/item' %>
 <% end %>

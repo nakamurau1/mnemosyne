@@ -59,6 +59,11 @@ class Item < ApplicationRecord
     Time.zone.today + (interval * @new_easiness_factor).ceil
   end
 
+  # 日付まで表示する
+  def next_review_timing_str
+    self.next_review_datetime.strftime("%Y/%m/%d")
+  end
+
   private
 
     def _set_default_value
