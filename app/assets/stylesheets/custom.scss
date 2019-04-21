@@ -261,7 +261,10 @@ a.item-delete-link {
 .new-item-button {
   position: fixed;
   font-size: 60px;
-  bottom: 50px;
+  bottom: 20px;
   right: 10px;
   z-index: 100;
+}
+a.new-item-button {
+  text-decoration: none;
 }
