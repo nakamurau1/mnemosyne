@@ -246,3 +246,14 @@ a.item-delete-link {
     }
   }
 }
+
+/* review page */
+#toast {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 100;
+  background-color: dimgray;
+  color: white;
+}
+
