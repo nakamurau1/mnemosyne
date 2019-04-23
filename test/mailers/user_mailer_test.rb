@@ -7,7 +7,7 @@ class UserMailerTest < ActionMailer::TestCase
     mail = UserMailer.account_activation(user)
     assert_equal "【お知らせ】メールアドレス承認のお願い", mail.subject
     assert_equal [user.email], mail.to
-    assert_equal ["noreply@example.com"], mail.from
+    assert_equal ["noreply@ankikun.jp"], mail.from
   end 
 
   test "password_reset" do
@@ -15,6 +15,6 @@ class UserMailerTest < ActionMailer::TestCase
     user.reset_token = User.new_token
     mail = UserMailer.password_reset(user)
     assert_equal "【お知らせ】パスワードの再設定用URL", mail.subject
-    assert_equal ["noreply@example.com"], mail.from
+    assert_equal ["noreply@ankikun.jp"], mail.from
   end
 end
