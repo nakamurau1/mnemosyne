@@ -8,10 +8,10 @@
       </span>
       <% if @mode == :review %>
         <div class="review-btn" onclick="$('#item-<%= item.id %>').fadeOut('fast');">
-          <%= button_to "簡単", items_review_path(quality: :easy, item_id: item.id),
-                        remote: true, class: "btn btn-success easy" %>
           <%= button_to "普通", items_review_path(quality: :good, item_id: item.id),
                         remote: true, class: "btn btn-primary good" %>
+          <%= button_to "簡単", items_review_path(quality: :easy, item_id: item.id),
+                        remote: true, class: "btn btn-success easy" %>
           <%= button_to "もう一度", items_review_path(quality: :again, item_id: item.id),
                         remote: true, class: "btn btn-danger again" %>
         </div>
