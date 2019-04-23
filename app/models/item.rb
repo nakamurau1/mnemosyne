@@ -34,10 +34,10 @@ class Item < ApplicationRecord
       case quality
         when :easy
           self.learning_step = 3
-          return 4.days.after
+          return 3.days.after
         when :good
           self.learning_step = 3
-          return 2.day.after
+          return 1.day.after
         when :again
           self.learning_step = 1
           return 1.minutes.after

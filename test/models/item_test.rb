@@ -26,7 +26,7 @@ class ItemTest < ActiveSupport::TestCase
     @item.review(:again)
     @item.review(:good)
     @item.review(:good)
-    assert 2.days.after.all_day.cover?(@item.next_review_datetime)
+    assert 1.days.after.all_day.cover?(@item.next_review_datetime)
     assert @item.learning_step == 3
     @item.review(:again)
     @item.review(:easy)
