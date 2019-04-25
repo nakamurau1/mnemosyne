@@ -4,9 +4,11 @@
     <%= form_for(@item) do |f| %>
       <%= f.label :front_text, "表" %>
       <%= f.text_area :front_text, class: 'form-control', rows: 5 %>
+      <%= f.file_field :front_picture, accept: 'image/jpeg,image/gif,image/png' %>
 
       <%= f.label :back_text, "裏" %>
       <%= f.text_area :back_text, class: 'form-control', rows: 5 %>
+      <%= f.file_field :back_picture, accept: 'image/jpeg,image/gif,image/png' %>
 
       <%= f.submit "更新する", class: "btn btn-primary" %>
     <% end %>

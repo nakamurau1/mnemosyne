@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190413060649) do
+ActiveRecord::Schema.define(version: 20190424121940) do
 
   create_table "items", force: :cascade do |t|
     t.text "front_text"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20190413060649) do
     t.datetime "previous_review_datetime"
     t.integer "review_count", default: 0
     t.integer "learning_step", default: 1
+    t.string "front_picture"
+    t.string "back_picture"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
