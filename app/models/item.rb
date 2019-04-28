@@ -2,6 +2,9 @@ class Item < ApplicationRecord
   after_initialize :_set_default_value, if: :new_record?
   belongs_to :user
   validates :user_id, presence: true
+  validate  :_picture_size
+  mount_uploader :front_picture, PictureUploader
+  mount_uploader :back_picture, PictureUploader
 
   GRADE = {
       easy: 5,
@@ -78,6 +81,13 @@ class Item < ApplicationRecord
         1.3
       else
         new_value
+      end
+    end
+
+    # アップロードされた画像のサイズをバリデーションする
+    def _picture_size
+      if front_picture.size > 5.megabytes && back_picture.size > 5.megabytes
+        errors.add(:picture, "5MB以下のファイルを選択してください")
       end
     end
 end

@@ -24,3 +24,6 @@ vendor/bundle
 .byebug_history
 
 .idea/*
+
+# アップロードされたテスト画像を無視する
+/public/uploads

@@ -54,7 +54,7 @@ class ItemsController < ApplicationController
 private
 
     def _item_params
-      params.require(:item).permit(:front_text, :back_text)
+      params.require(:item).permit(:front_text, :back_text, :front_picture, :back_picture)
     end
 
 end
