@@ -22,6 +22,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'mini_racer'
 gem 'will_paginate', '3.1.6'
 gem 'bootstrap'
+gem 'airbrake', '~> 9.1'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -62,7 +63,6 @@ end
 group :production do
   gem 'pg', '0.20.0'
   gem 'fog', '1.42'
-  gem 'airbrake', '~> 9.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
