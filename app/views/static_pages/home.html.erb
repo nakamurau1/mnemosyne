@@ -1,13 +1,11 @@
 <% provide(:title, "TOP") %>
 <% if !logged_in? %>
   <div class="center jumbotron">
-    <h1>暗記くん</h1>
-
-    <h2>
-      ソフトウェアのように知識をインストールする
-    </h2>
-
-    <%= link_to "今すぐ登録する", signup_path, class: "btn btn-lg btn-primary" %>
+    <h1>ソフトウェアのように知識をインストールする</h1>
+    <br/>
+    <h2>復習タイミングを自動調整することにより効率的に記憶することが出来ます</h2>
+    <br/>
+    <%= link_to "無料で会員登録", signup_path, class: "btn btn-lg btn-primary" %>
   </div>
 <% else %>
   <div id="toast" class="toast" data-delay="2000" role="status">
