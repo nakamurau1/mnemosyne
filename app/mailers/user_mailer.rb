@@ -9,4 +9,9 @@ class UserMailer < ApplicationMailer
     @user = user
     mail to: user.email, subject: "【お知らせ】パスワードの再設定用URL" 
   end
+
+  def review_notice(user, review_items_count)
+    @review_items_count = review_items_count
+    mail to: user.email, subject: "【お知らせ】復習が必要な項目があります"
+  end
 end
