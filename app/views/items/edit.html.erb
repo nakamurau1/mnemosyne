@@ -1,6 +1,6 @@
 <% provide(:title, '項目編集') %>
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-12">
     <%= form_for(@item) do |f| %>
       <%= f.label :front_text, "表" %>
       <%= f.text_area :front_text, class: 'form-control', rows: 5 %>
