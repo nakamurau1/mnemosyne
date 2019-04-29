@@ -22,6 +22,7 @@
       <%= f.select :notice, [%w[朝9時に通知 9], %w[夜19時に通知 19], ["通知しない", nil]] %>
 
       <%= f.submit "設定を更新する", class: "btn btn-primary" %>
+      <%= link_to "ログアウト", logout_path, method: :delete, class: "btn btn-link" %>
     <% end %>
 
     <div class="gravatar_edit">

@@ -10,9 +10,6 @@
           <li class="nav-item"><%= link_to "暗記項目登録", new_item_path(current_user), class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "暗記項目一覧", items_path(current_user), class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "設定", edit_user_path(current_user), class: "nav-link" %></li>
-          <li class="nav-item">
-            <%= link_to "ログアウト", logout_path, method: :delete, class: "nav-link" %>
-          </li>
         <% else %>
           <li class="nav-item"><%= link_to "ログイン", login_path, class: "nav-link" %></li>
         <% end %>
