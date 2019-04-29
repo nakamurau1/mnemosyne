@@ -1,5 +1,5 @@
-<% provide(:title, "プロフィール更新") %>
-<h1>プロフィールを更新する</h1>
+<% provide(:title, "設定") %>
+<h1>設定を変更する</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -18,7 +18,10 @@
       <%= f.label :password_confirmation, "パスワード（確認）" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= f.submit "プロフィールを更新する", class: "btn btn-primary" %>
+      <%= f.label :notice, "復習のメール通知" %>
+      <%= f.select :notice, [%w[朝9時に通知 9], %w[夜21時に通知 19], ["通知しない", nil]] %>
+
+      <%= f.submit "設定を更新する", class: "btn btn-primary" %>
     <% end %>
 
     <div class="gravatar_edit">
