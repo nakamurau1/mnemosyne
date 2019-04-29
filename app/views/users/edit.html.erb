@@ -19,7 +19,7 @@
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
       <%= f.label :notice, "復習のメール通知" %>
-      <%= f.select :notice, [%w[朝9時に通知 9], %w[夜21時に通知 19], ["通知しない", nil]] %>
+      <%= f.select :notice, [%w[朝9時に通知 9], %w[夜19時に通知 19], ["通知しない", nil]] %>
 
       <%= f.submit "設定を更新する", class: "btn btn-primary" %>
     <% end %>
