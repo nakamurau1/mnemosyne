@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   after_initialize :_set_default_value, if: :new_record?
   belongs_to :user
+  belongs_to :deck, optional: true
   validates :user_id, presence: true
   validate  :_picture_size
   mount_uploader :front_picture, PictureUploader

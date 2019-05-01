@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190429072559) do
+ActiveRecord::Schema.define(version: 20190430121004) do
+
+  create_table "decks", force: :cascade do |t|
+    t.integer "user_id"
+    t.text "title"
+    t.text "description"
+    t.boolean "public"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "created_at"], name: "index_decks_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_decks_on_user_id"
+  end
 
   create_table "items", force: :cascade do |t|
     t.text "front_text"
@@ -25,6 +36,9 @@ ActiveRecord::Schema.define(version: 20190429072559) do
     t.integer "learning_step", default: 1
     t.string "front_picture"
     t.string "back_picture"
+    t.integer "deck_id"
+    t.index ["deck_id", "created_at"], name: "index_items_on_deck_id_and_created_at"
+    t.index ["deck_id"], name: "index_items_on_deck_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 

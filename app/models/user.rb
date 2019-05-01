@@ -9,6 +9,7 @@ class User < ApplicationRecord
                     uniqueness: {case_sensitive: false}
   validates :password, presence: true, length: {minimum: 6}, allow_nil: true
   has_many :items, dependent: :destroy
+  has_many :decks, dependent: :destroy
   has_secure_password
 
   attr_accessor :remember_token, :activation_token, :reset_token
