@@ -1,0 +1,18 @@
+<% provide(:title, 'デッキ登録') %>
+<div class="row">
+  <div class="col-md-12">
+    <%= form_for(@deck) do |f| %>
+      <%= f.label :title, "デッキのタイトル" %>
+      <%= f.text_area :title, class: 'form-control', rows: 1 %>
+
+      <%= f.label :description, "デッキの説明" %>
+      <%= f.text_area :description, class: 'form-control', rows: 5 %>
+
+      <%= f.label :public, "デッキの公開設定", style: "display: block;" %>
+      <label><%= f.radio_button :public, false %>非公開</label>
+      <label><%= f.radio_button :public, true %>公開</label>
+
+      <%= f.submit "登録する", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

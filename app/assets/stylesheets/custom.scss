@@ -158,13 +158,20 @@ aside {
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
 }
 
+input[type=submit], input[type=file] {
+  width: 100%;
+}
+
 input {
   height: auto !important;
+}
+
+.input-label {
+  display: block;
 }
 
 #error_explanation {
@@ -281,4 +288,34 @@ a.item-delete-link {
 }
 a.new-item-button {
   text-decoration: none;
+}
+
+/* decks list */
+.deck {
+  height: 80px;
+  .title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  .description {
+    font-size: 0.8rem;
+    color: gray;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+.deck-title {
+  font-size: 1.2rem;
+}
+
+.deck-description {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.deck-atr {
+  font-size: 0.7rem;
+  color: gray;
 }
