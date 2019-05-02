@@ -4,7 +4,7 @@
     <%= form_for(@item) do |f| %>
       <%= f.label :deck, "デッキ", class: "input-label" %>
       <%= f.select :deck_id, options_for_select(decks_options_for_select_tag, selected: @item.deck_id),
-          include_blank: true %>
+          {include_blank: true}, {class: "form-control"} %>
 
       <%= f.label :front_text, "表", class: "input-label" %>
       <%= f.text_area :front_text, class: 'form-control', rows: 5 %>
