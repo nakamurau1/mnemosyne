@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   validate  :_picture_size
   mount_uploader :front_picture, PictureUploader
   mount_uploader :back_picture, PictureUploader
+  default_scope { order(id: :desc) }
 
   GRADE = {
       easy: 5,
