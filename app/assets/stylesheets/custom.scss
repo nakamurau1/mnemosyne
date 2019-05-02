@@ -170,6 +170,10 @@ input {
   height: auto !important;
 }
 
+.input-label {
+  display: block;
+}
+
 #error_explanation {
   color: red;
   ul {
