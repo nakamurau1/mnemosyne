@@ -285,3 +285,19 @@ a.item-delete-link {
 a.new-item-button {
   text-decoration: none;
 }
+
+/* decks list */
+.deck {
+  height: 80px;
+  .title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  .description {
+    font-size: 0.8rem;
+    color: gray;
+  }
+  a {
+    text-decoration: none;
+  }
+}

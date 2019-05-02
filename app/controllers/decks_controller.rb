@@ -2,7 +2,7 @@ class DecksController < ApplicationController
   before_action :_logged_in_user, only: [:index, :new]
 
   def index
-
+    @decks = current_user.decks.paginate(page: params[:page])
   end
 
   def new

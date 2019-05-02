@@ -1,1 +1,7 @@
-あなたのデッキ
+<% provide(:title, 'デッキ一覧') %>
+<h1>あなたのデッキ一覧</h1>
+<% if @decks.any? %>
+  <%= render @decks %>
+
+  <%= will_paginate @decks %>
+<% end %>
