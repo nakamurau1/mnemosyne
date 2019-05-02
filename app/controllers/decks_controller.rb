@@ -5,6 +5,11 @@ class DecksController < ApplicationController
     @decks = current_user.decks.paginate(page: params[:page])
   end
 
+  def show
+    @deck = current_user.decks.where(id: params[:id]).first
+    @items = @deck.items.paginate(page: params[:page])
+  end
+
   def new
     @deck = current_user.decks.build
   end
