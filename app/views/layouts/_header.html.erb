@@ -7,8 +7,8 @@
     <div id="menu" class="collapse navbar-collapse">
       <ul class="navbar-nav">
         <% if logged_in? %>
-          <li class="nav-item"><%= link_to "暗記項目登録", new_item_path(current_user), class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "暗記項目一覧", items_path(current_user), class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "暗記アイテム登録", new_item_path(current_user), class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "暗記アイテム一覧", items_path(current_user), class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "デッキ登録", new_deck_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "あなたのデッキ", decks_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "設定", edit_user_path(current_user), class: "nav-link" %></li>
