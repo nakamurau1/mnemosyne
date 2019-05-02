@@ -9,7 +9,7 @@
       <%= f.text_area :description, class: 'form-control', rows: 5 %>
 
       <%= f.label :public, "デッキの公開設定", style: "display: block;" %>
-      <label><%= f.radio_button :public, false %>非公開</label>
+      <label><%= f.radio_button :public, false, checked: true %>非公開</label>
       <label><%= f.radio_button :public, true %>公開</label>
 
       <%= f.submit "登録する", class: "btn btn-primary" %>

@@ -1,12 +1,15 @@
 class DecksController < ApplicationController
-  before_action :_logged_in_user, only: [:index, :show, :new, :create]
+  before_action :_logged_in_user, only: [:index, :new, :create]
 
   def index
     @decks = current_user.decks.paginate(page: params[:page])
   end
 
   def show
-    @deck = current_user.decks.where(id: params[:id]).first
+    @deck = Deck.where(id: params[:id]).first
+    if !current_user?(@deck.user) && !@deck.public?
+      redirect_to root_path
+    end
     @items = @deck.items.paginate(page: params[:page])
   end
 
