@@ -1,5 +1,5 @@
 class DecksController < ApplicationController
-  before_action :_logged_in_user, only: [:index, :new, :create, :edit, :copy]
+  before_action :_logged_in_user, only: [:index, :new, :create, :edit, :update, :copy]
 
   def index
     @decks = current_user.decks.paginate(page: params[:page])
@@ -32,6 +32,16 @@ class DecksController < ApplicationController
 
   def edit
     @deck = Deck.find_by(id: params[:id])
+  end
+
+  def update
+    @deck = Deck.find_by(id: params[:id])
+    if @deck.update_attributes(_deck_params)
+      flash[:success] = "デッキを更新しました！"
+      redirect_to @deck
+    else
+      render 'edit'
+    end
   end
 
   def copy
