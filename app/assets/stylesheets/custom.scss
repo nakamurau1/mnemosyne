@@ -245,6 +245,11 @@ a.item-delete-link {
   .angle.collapsed:after {
     content: "\f107";
   }
+  .deck-title {
+    font-size: 0.7rem;
+    text-align: center;
+    margin-bottom: 10px;
+  }
   .edit-menu {
     font-size: 0.8rem;
   }
