@@ -8,6 +8,9 @@
 <span class="deck-atr"><%= @deck.user.name %></span>
 <div class="deck-atr">
   <%= @deck.items.count %> 個のアイテムがあります
+  <% if current_user?(@deck.user) %>
+    <%= link_to "編集", edit_deck_path(@deck), class: "far fa-edit edit-deck" %>
+  <% end %>
 </div>
 <hr>
 <%= render 'shared/item' %>

@@ -26,6 +26,10 @@ class DecksController < ApplicationController
     end
   end
 
+  def edit
+    @deck = Deck.find_by(id: params[:id])
+  end
+
   private
 
     def _deck_params
