@@ -45,7 +45,13 @@ class DecksController < ApplicationController
   end
 
   def copy
-
+    @deck = Deck.find_by(id: params[:id])
+    if @deck.copy_to(current_user)
+      flash[:success] = "あなたのデッキにコピーしました！"
+    else
+      flash[:danger] = "コピーできませんでした"
+    end
+    redirect_to @deck
   end
 
   private

@@ -11,5 +11,20 @@ class Deck < ApplicationRecord
     end
   end
 
+  def copy_to(user)
+    new_deck = self.deep_dup
+    new_deck.user = user
+    new_deck.public = false
+    return false unless new_deck.save
+    self.items.each do |item|
+      new_item = item.deep_dup
+      new_item.deck = new_deck
+      new_item.user = user
+      new_item.set_default_value
+      return false unless new_item.save
+    end
+    return true
+  end
+
   private
 end

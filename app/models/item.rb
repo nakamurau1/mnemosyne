@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  after_initialize :_set_default_value, if: :new_record?
+  after_initialize :set_default_value, if: :new_record?
   belongs_to :user
   belongs_to :deck, optional: true
   validates :user_id, presence: true
@@ -69,12 +69,15 @@ class Item < ApplicationRecord
     self.next_review_datetime.strftime("%Y/%m/%d")
   end
 
-  private
+  def set_default_value
+    self.easiness_factor          = 2.5
+    self.next_review_datetime     = Time.zone.now
+    self.review_count             = 0
+    self.previous_review_datetime = nil
+    self.learning_step            = 1
+  end
 
-    def _set_default_value
-      self.easiness_factor = 2.5
-      self.next_review_datetime = Time.zone.now
-    end
+  private
 
     def _calc_easiness_factor(current_value, quality)
       grade = GRADE[quality]
