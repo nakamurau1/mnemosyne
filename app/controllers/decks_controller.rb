@@ -1,5 +1,5 @@
 class DecksController < ApplicationController
-  before_action :_logged_in_user, only: [:index, :new, :create, :edit, :update, :copy]
+  before_action :_logged_in_user, only: [:index, :new, :create, :edit, :update, :destroy, :copy]
 
   def index
     @decks = current_user.decks.paginate(page: params[:page])
@@ -42,6 +42,11 @@ class DecksController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    Deck.find(params[:id]).destroy
+    redirect_to decks_path
   end
 
   def copy

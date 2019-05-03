@@ -14,5 +14,6 @@
 
       <%= f.submit "更新する", class: "btn btn-primary" %>
     <% end %>
+    <%= link_to "削除する", deck_path(@deck), method: :delete, class: "item-delete-link" %>
   </div>
 </div>
