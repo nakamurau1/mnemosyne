@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :items
   resources :decks
   get '/public_decks', to: 'decks#public_index'
+  post '/copy',        to: 'decks#copy'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,5 +1,5 @@
 class DecksController < ApplicationController
-  before_action :_logged_in_user, only: [:index, :new, :create]
+  before_action :_logged_in_user, only: [:index, :new, :create, :edit, :copy]
 
   def index
     @decks = current_user.decks.paginate(page: params[:page])
@@ -32,6 +32,10 @@ class DecksController < ApplicationController
 
   def edit
     @deck = Deck.find_by(id: params[:id])
+  end
+
+  def copy
+
   end
 
   private
