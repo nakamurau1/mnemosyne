@@ -29,9 +29,16 @@
         </div>
        <% end %>
     </div>
-    <%= link_to "編集", edit_item_path(item), class: "far fa-edit edit-menu" %>
-    <span class="timestamp">
-      次回復習日：<%= item.next_review_timing_str %>
-    </span>
+    <% if item.deck.present? %>
+      <div class="deck-title">
+        <%= link_to item.deck.title, deck_path(item.deck.id), target: "_blank" %>
+      </div>
+    <% end %>
+    <% if current_user?(item.user) %>
+      <%= link_to "編集", edit_item_path(item), class: "far fa-edit edit-menu" %>
+      <span class="timestamp">
+        次回復習日：<%= item.next_review_timing_str %>
+      </span>
+    <% end %>
   </div>
 </div>

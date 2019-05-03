@@ -1,4 +1,4 @@
-<% provide(:title, 'デッキ登録') %>
+<% provide(:title, 'デッキ編集') %>
 <div class="row">
   <div class="col-md-12">
     <%= form_for(@deck) do |f| %>
@@ -9,10 +9,11 @@
       <%= f.text_area :description, class: 'form-control', rows: 5 %>
 
       <%= f.label :public, "デッキの公開設定", style: "display: block;" %>
-      <label><%= f.radio_button :public, false, checked: true %>非公開</label>
-      <label><%= f.radio_button :public, true %>公開</label>
+      <label><%= f.radio_button :public, false, checked: !@deck.public %>非公開</label>
+      <label><%= f.radio_button :public, true, checked: @deck.public %>公開</label>
 
-      <%= f.submit "登録する", class: "btn btn-primary" %>
+      <%= f.submit "更新する", class: "btn btn-primary" %>
     <% end %>
+    <%= link_to "削除する", deck_path(@deck), method: :delete, class: "item-delete-link" %>
   </div>
 </div>

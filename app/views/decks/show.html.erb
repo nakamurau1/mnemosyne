@@ -1,13 +1,21 @@
-<div class="deck-title">
-  <%= @deck.title %>
+<div class="deck-header">
+  <div class="deck-title">
+    <%= @deck.title %>
+    <% if !current_user?(@deck.user) %>
+      <%= button_to "コピーする", copy_path(id: @deck.id), class: "btn btn-success btn-sm copy-btn" %>
+    <% end %>
+  </div>
+  <div class="deck-description">
+    <%= @deck.description %>
+  </div>
+  <span class="deck-atr"><%= @deck.public_str %>,</span>
+  <span class="deck-atr"><%= @deck.user.name %></span>
+  <div class="deck-atr">
+    <%= @deck.items.count %> 個のアイテムがあります
+    <% if current_user?(@deck.user) %>
+      <%= link_to "編集", edit_deck_path(@deck), class: "far fa-edit edit-deck" %>
+    <% end %>
+  </div>
+  <hr>
 </div>
-<div class="deck-description">
-  <%= @deck.description %>
-</div>
-<span class="deck-atr"><%= @deck.public_str %>,</span>
-<span class="deck-atr"><%= @deck.user.name %></span>
-<div class="deck-atr">
-  <%= @deck.items.count %> 個のアイテムがあります
-</div>
-<hr>
 <%= render 'shared/item' %>

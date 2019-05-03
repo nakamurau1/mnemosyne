@@ -245,6 +245,11 @@ a.item-delete-link {
   .angle.collapsed:after {
     content: "\f107";
   }
+  .deck-title {
+    font-size: 0.7rem;
+    text-align: center;
+    margin-bottom: 10px;
+  }
   .edit-menu {
     font-size: 0.8rem;
   }
@@ -292,6 +297,7 @@ a.new-item-button {
 
 /* decks list */
 .deck {
+  padding: 10px 0;
   height: 80px;
   .title {
     font-size: 1.2rem;
@@ -306,16 +312,25 @@ a.new-item-button {
   }
 }
 
-.deck-title {
-  font-size: 1.2rem;
-}
+.deck-header {
+  .deck-title {
+    font-size: 1.2rem;
+  }
+  .deck-description {
+    font-size: 0.8rem;
+    color: gray;
+  }
+  .deck-atr {
+    font-size: 0.7rem;
+    color: gray;
+  }
 
-.deck-description {
-  font-size: 0.8rem;
-  color: gray;
-}
-
-.deck-atr {
-  font-size: 0.7rem;
-  color: gray;
+  .edit-deck {
+    font-size: 0.7rem;
+    float: right;
+  }
+  .copy-btn {
+    float: right;
+    width: 100px;
+  }
 }

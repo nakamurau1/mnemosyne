@@ -1,0 +1,7 @@
+<% provide(:title, 'みんなのデッキ一覧') %>
+<h1>みんなのデッキ一覧</h1>
+<% if @decks.any? %>
+  <%= render @decks %>
+
+  <%= will_paginate @decks %>
+<% end %>
