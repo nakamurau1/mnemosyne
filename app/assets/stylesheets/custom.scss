@@ -306,25 +306,25 @@ a.new-item-button {
   }
 }
 
-.deck-title {
-  font-size: 1.2rem;
-}
+.deck-header {
+  .deck-title {
+    font-size: 1.2rem;
+  }
+  .deck-description {
+    font-size: 0.8rem;
+    color: gray;
+  }
+  .deck-atr {
+    font-size: 0.7rem;
+    color: gray;
+  }
 
-.deck-description {
-  font-size: 0.8rem;
-  color: gray;
-}
-
-.deck-atr {
-  font-size: 0.7rem;
-  color: gray;
-}
-
-.edit-deck {
-  font-size: 0.7rem;
-  float: right;
-}
-
-.copy-btn {
-  float: right;
+  .edit-deck {
+    font-size: 0.7rem;
+    float: right;
+  }
+  .copy-btn {
+    float: right;
+    width: 100px;
+  }
 }
