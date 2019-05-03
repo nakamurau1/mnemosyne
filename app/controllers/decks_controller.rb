@@ -5,6 +5,10 @@ class DecksController < ApplicationController
     @decks = current_user.decks.paginate(page: params[:page])
   end
 
+  def public_index
+    @decks = Deck.where(public: true).paginate(page: params[:page])
+  end
+
   def show
     @deck = Deck.where(id: params[:id]).first
     if !current_user?(@deck.user) && !@deck.public?
