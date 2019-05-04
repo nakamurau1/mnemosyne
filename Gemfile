@@ -21,6 +21,7 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'mini_racer'
 gem 'will_paginate', '3.1.6'
+gem 'will_paginate-bootstrap4'
 gem 'bootstrap'
 gem 'airbrake', '~> 9.1'
 

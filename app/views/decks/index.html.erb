@@ -3,5 +3,5 @@
 <% if @decks.any? %>
   <%= render @decks %>
 
-  <%= will_paginate @decks %>
+  <%= will_paginate @decks, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 <% end %>
