@@ -1,5 +1,10 @@
 <div class="row" id ="item-<%= item.id %>">
   <div class="col-10 mx-auto item">
+    <% if item.deck.present? %>
+      <div class="deck-title">
+        <%= link_to item.deck.title, deck_path(item.deck.id), target: "_blank" %>
+      </div>
+    <% end %>
     <span class="front-text">
       <%= item.front_text %>
     </span>
@@ -29,11 +34,6 @@
         </div>
        <% end %>
     </div>
-    <% if item.deck.present? %>
-      <div class="deck-title">
-        <%= link_to item.deck.title, deck_path(item.deck.id), target: "_blank" %>
-      </div>
-    <% end %>
     <% if current_user?(item.user) %>
       <%= link_to "編集", edit_item_path(item), class: "far fa-edit edit-menu" %>
       <span class="timestamp">
