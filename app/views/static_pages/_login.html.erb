@@ -1,0 +1,11 @@
+<div id="toast" class="toast" data-delay="2000" role="status">
+  <div class="toast-body">
+    次の復習日は <span id="js-next-review-datetime"></span> です
+  </div>
+</div>
+<%= link_to "", new_item_path(current_user), class: "fas fa-plus-circle new-item-button text-dark" %>
+<% if @items.present? %>
+  <%= render 'shared/item' %>
+<% else %>
+  <h2>今日の復習アイテムはありません</h2>
+<% end %>
