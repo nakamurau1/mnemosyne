@@ -26,5 +26,8 @@ class Deck < ApplicationRecord
     return true
   end
 
+  def updated_at_str
+    self.updated_at.strftime("%Y/%m/%d")
+  end
   private
 end
