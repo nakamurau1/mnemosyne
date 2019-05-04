@@ -7,5 +7,8 @@
 <% if @items.present? %>
   <%= render 'shared/item' %>
 <% else %>
-  <h2>今日の復習アイテムはありません</h2>
+  <div class="empty-msg">
+    <h2>復習アイテムはありません</h2>
+    <i class="far fa-check-circle check-mark"></i>
+  </div>
 <% end %>
