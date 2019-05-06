@@ -21,6 +21,13 @@ class SessionsController < ApplicationController
     end
   end
 
+  def guest_login
+    if cookies[:remember_token].blank?
+      user = User.create(name: "ゲストユーザー#{Time.zone.now.strftime("%Y%m%d%H%m%s")}")
+      remember(user)
+    end
+  end
+
   def destroy
     log_out if logged_in?
     redirect_to root_path
