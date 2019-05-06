@@ -26,6 +26,7 @@ class SessionsController < ApplicationController
       user = User.create(name: "ゲストユーザー#{Time.zone.now.strftime("%Y%m%d%H%m%s")}")
       remember(user)
     end
+    redirect_to root_path
   end
 
   def destroy
