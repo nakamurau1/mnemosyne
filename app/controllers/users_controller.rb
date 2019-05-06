@@ -12,7 +12,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(_user_params)
+    if current_user.present?
+      @user = current_user
+      @user.assign_attributes(_user_params)
+      @user.create_activation_digest
+    else
+      @user = User.new(_user_params)
+    end
     if @user.save
       UserMailer.account_activation(@user).deliver_now
       flash[:info] = "アカウント有効化メールを確認してください"
@@ -52,7 +58,7 @@ class UsersController < ApplicationController
 
   def _correct_user
     @user = User.find_by(id: params[:id])
-    redirect_to root_path unless current_user?(@user) 
+    redirect_to root_path unless (current_user?(@user) && !@user.guest?)
   end
 
   def _admin_user

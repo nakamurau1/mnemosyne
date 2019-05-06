@@ -12,7 +12,11 @@
           <li class="nav-item"><%= link_to "暗記アイテム一覧", items_path(current_user), class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "デッキ登録", new_deck_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "あなたのデッキ", decks_path, class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "設定", edit_user_path(current_user), class: "nav-link" %></li>
+          <% if current_user.guest? %>
+            <li class="nav-item"><%= link_to "会員登録", signup_path, class: "nav-link" %></li>
+          <% else %>
+            <li class="nav-item"><%= link_to "設定", edit_user_path(current_user), class: "nav-link" %></li>
+          <% end %>
         <% else %>
           <li class="nav-item"><%= link_to "ログイン", login_path, class: "nav-link" %></li>
         <% end %>
