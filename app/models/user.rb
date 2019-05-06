@@ -68,6 +68,10 @@ class User < ApplicationRecord
      self.items.where("next_review_datetime < ?", Time.zone.now)
   end
 
+  def guest?
+    self.email.blank?
+  end
+
   private
 
     def _set_default_value
