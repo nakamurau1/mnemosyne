@@ -12,7 +12,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(_user_params)
+    if current_user.present?
+      @user = current_user
+      @user.assign_attributes(_user_params)
+      @user.create_activation_digest
+    else
+      @user = User.new(_user_params)
+    end
     if @user.save
       UserMailer.account_activation(@user).deliver_now
       flash[:info] = "アカウント有効化メールを確認してください"

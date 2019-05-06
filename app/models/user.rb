@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   after_initialize :_set_default_value, if: :new_record?
   before_save :_downcase_email
-  before_create :_create_activation_digest
+  before_create :create_activation_digest
   validates :name, presence: true, length: {maximum: 50}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: {maximum: 255},
@@ -72,6 +72,11 @@ class User < ApplicationRecord
     self.email.blank?
   end
 
+  def create_activation_digest
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest(activation_token)
+  end
+
   private
 
     def _set_default_value
@@ -80,10 +85,5 @@ class User < ApplicationRecord
 
     def _downcase_email
       self.email = email&.downcase
-    end
-
-    def _create_activation_digest
-      self.activation_token = User.new_token
-      self.activation_digest = User.digest(activation_token)
     end
 end
