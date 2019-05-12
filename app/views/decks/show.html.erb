@@ -1,3 +1,5 @@
+<% provide(:title, "#{@deck.title}（#{@deck.user.name}さんのデッキ）") %>
+<% provide(:description, "#{@deck.description}") %>
 <div class="deck-header">
   <div class="deck-title">
     <%= @deck.title %>
