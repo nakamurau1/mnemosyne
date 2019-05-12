@@ -9,10 +9,10 @@ module ApplicationHelper
     end
   end
 
-  def default_meta_tags
+  def default_meta_tags(title)
     {
         site: '暗記くん',
-        title: '暗記くん',
+        title: full_title(title),
         reverse: true,
         charset: 'utf-8',
         description: 'ソフトウェアのように知識をインストールする',
