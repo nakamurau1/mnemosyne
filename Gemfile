@@ -24,6 +24,7 @@ gem 'will_paginate', '3.1.6'
 gem 'will_paginate-bootstrap4'
 gem 'bootstrap'
 gem 'airbrake', '~> 9.1'
+gem 'meta-tags'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
