@@ -1,21 +1,17 @@
 module ApplicationHelper
-  # ページごとの完全なタイトルを返す
-  def full_title(page_title = '')
-    base_title = "暗記くん"
-    if page_title.empty?
-      base_title
+  def default_meta_tags(title, description)
+    if description.present?
+      description = "【暗記くん】#{description}"
     else
-      page_title + " | " + base_title
+      description = "【暗記くん】の#{title}ページです。暗記したい内容を登録して、暗記くんが通知してくれたタイミングで復習するだけで、簡単に暗記できます。"
     end
-  end
 
-  def default_meta_tags(title)
     {
         site: '暗記くん',
-        title: full_title(title),
+        title: title,
         reverse: true,
         charset: 'utf-8',
-        description: 'ソフトウェアのように知識をインストールする',
+        description: description,
         keywords: '暗記,記憶,Anki,語学,元素記号,百人一首,テスト,試験,考査',
         canonical: request.original_url,
         separator: '|',
