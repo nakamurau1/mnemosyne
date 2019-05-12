@@ -25,6 +25,9 @@ class ItemsController < ApplicationController
 
   def new
     @item = current_user.items.build
+    if params[:deck_id].present?
+      @item.deck_id = params[:deck_id]
+    end
   end
 
   def create

@@ -20,4 +20,7 @@
   </div>
   <hr>
 </div>
+<% if @deck.user == current_user %>
+  <%= link_to "", new_item_path(current_user, deck_id: @deck.id), class: "fas fa-plus-circle new-item-button text-dark" %>
+<% end %>
 <%= render 'shared/item' %>
