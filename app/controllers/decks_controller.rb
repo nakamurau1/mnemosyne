@@ -10,7 +10,7 @@ class DecksController < ApplicationController
   end
 
   def show
-    @deck = Deck.where(id: params[:id]).first
+    @deck = Deck.find(id: params[:id])
     if !current_user?(@deck.user) && !@deck.public?
       redirect_to root_path
     end
