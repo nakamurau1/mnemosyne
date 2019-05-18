@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :_logged_in_user, only: [:index, :show, :new, :create, :edit, :review]
-  before_action :_correct_uer, only: [:show, :edit, :update, :destroy]
+  before_action :_correct_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = current_user.items.paginate(page: params[:page])
