@@ -4,7 +4,7 @@
   <div class="deck-title">
     <%= @deck.title %>
     <% if !current_user?(@deck.user) %>
-      <%= button_to "コピーする", copy_path(id: @deck.id), class: "btn btn-success btn-sm copy-btn" %>
+      <%= button_to "学習する", copy_path(id: @deck.id), class: "btn btn-success btn-sm copy-btn" %>
     <% end %>
   </div>
   <div class="deck-description">
