@@ -10,7 +10,7 @@ class DecksController < ApplicationController
   end
 
   def show
-    @deck = Deck.find(id: params[:id])
+    @deck = Deck.find(params[:id])
     if !current_user?(@deck.user) && !@deck.public?
       redirect_to root_path
     end
@@ -50,7 +50,7 @@ class DecksController < ApplicationController
   end
 
   def copy
-    @deck = Deck.find_by(id: params[:id])
+    @deck = Deck.find(params[:id])
     if @deck.copy_to(current_user)
       flash[:success] = "あなたのデッキにコピーしました！"
     else
