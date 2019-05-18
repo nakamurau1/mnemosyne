@@ -1,5 +1,6 @@
 class DecksController < ApplicationController
   before_action :_logged_in_user, only: [:index, :new, :create, :edit, :update, :destroy, :copy]
+  before_action :_correct_user, only: [:edit, :update, :destroy]
 
   def index
     @decks = current_user.decks.paginate(page: params[:page])
@@ -63,5 +64,10 @@ class DecksController < ApplicationController
 
     def _deck_params
       params.require(:deck).permit(:title, :description, :public)
+    end
+
+    def _correct_user
+      @deck = Deck.find(params[:id])
+      redirect_to root_path unless current_user?(@deck.user)
     end
 end

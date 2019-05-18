@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :_logged_in_user, only: [:index, :show, :new, :create, :edit, :review]
+  before_action :_correct_uer, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = current_user.items.paginate(page: params[:page])
@@ -47,6 +48,7 @@ class ItemsController < ApplicationController
   def review
     quality = params[:quality]
     @item = Item.find(params[:item_id])
+    return redirect_to root_path unless current_user?(@item.user)
     @item.review(quality)
     respond_to do |format|
       format.html {redirect_to root_path}
@@ -60,4 +62,8 @@ private
       params.require(:item).permit(:front_text, :back_text, :front_picture, :back_picture, :deck_id)
     end
 
+    def _correct_user
+      @item = Item.find(params[:id])
+      redirect_to root_path unless current_user?(@item.user)
+    end
 end
