@@ -6,7 +6,7 @@
       </div>
     <% end %>
     <span class="front-text">
-      <%= item.front_text %>
+      <%= simple_format(h(item.front_text)) %>
     </span>
     <% if item.front_picture? %>
       <div class="front-picture">
@@ -16,7 +16,7 @@
     <i class="fas angle collapsed" data-toggle="collapse" data-target="#collapse-item-<%= item.id %>"></i>
     <div class="collapse" id="collapse-item-<%= item.id %>">
       <span class="back-text">
-        <%= item.back_text %>
+        <%= simple_format(h(item.back_text)) %>
       </span>
       <% if item.back_picture? %>
         <div class="back-picture">
