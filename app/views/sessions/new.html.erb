@@ -1,25 +1,27 @@
 <% provide(:title, "ログイン") %>
-<h1>ログイン</h1>
+<div class="container">
+  <h1>ログイン</h1>
 
-<div class="row">
-  <div class="col-12 mx-auto">
-    <%= form_for(:session, url: login_path) do |f| %>
+  <div class="row">
+    <div class="col-12 mx-auto">
+      <%= form_for(:session, url: login_path) do |f| %>
 
-      <%= f.label :email, "Emailアドレス" %>
-      <%= f.email_field :email, class: 'form-control' %>
+        <%= f.label :email, "Emailアドレス" %>
+        <%= f.email_field :email, class: 'form-control' %>
 
-      <%= f.label :password, "パスワード" %>
-      <%= link_to "(パスワードをお忘れの方はこちら)", new_password_reset_path %>
-      <%= f.password_field :password, class: 'form-control' %>
+        <%= f.label :password, "パスワード" %>
+        <%= link_to "(パスワードをお忘れの方はこちら)", new_password_reset_path %>
+        <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :remember_me, class: "checkbox inline" do %>
-        <%= f.check_box :remember_me, checked: true %>
-        <span>ログインしたままにする</span>
+        <%= f.label :remember_me, class: "checkbox inline" do %>
+          <%= f.check_box :remember_me, checked: true %>
+          <span>ログインしたままにする</span>
+        <% end %>
+
+        <%= f.submit "ログインする", class: "btn btn-primary btn-block" %>
       <% end %>
 
-      <%= f.submit "ログインする", class: "btn btn-primary btn-block" %>
-    <% end %>
-
-    <p>未登録ですか? <%= link_to "今すぐアカウントを登録する！", signup_path %></p>
+      <p>未登録ですか? <%= link_to "今すぐアカウントを登録する！", signup_path %></p>
+    </div>
   </div>
 </div>

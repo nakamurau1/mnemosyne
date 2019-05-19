@@ -1,19 +1,22 @@
 <% provide(:title, 'デッキ編集') %>
-<div class="row">
-  <div class="col-md-12">
-    <%= form_for(@deck) do |f| %>
-      <%= f.label :title, "デッキのタイトル" %>
-      <%= f.text_area :title, class: 'form-control', rows: 1 %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <%= form_for(@deck) do |f| %>
+        <%= f.label :title, "デッキのタイトル" %>
+        <%= f.text_area :title, class: 'form-control', rows: 1 %>
 
-      <%= f.label :description, "デッキの説明" %>
-      <%= f.text_area :description, class: 'form-control', rows: 5 %>
+        <%= f.label :description, "デッキの説明" %>
+        <%= f.text_area :description, class: 'form-control', rows: 5 %>
 
-      <%= f.label :public, "デッキの公開設定", style: "display: block;" %>
-      <label><%= f.radio_button :public, false, checked: !@deck.public %>非公開</label>
-      <label><%= f.radio_button :public, true, checked: @deck.public %>公開</label>
+        <%= f.label :public, "デッキの公開設定", style: "display: block;" %>
+        <label><%= f.radio_button :public, false, checked: !@deck.public %>非公開</label>
+        <label><%= f.radio_button :public, true, checked: @deck.public %>公開</label>
 
-      <%= f.submit "更新する", class: "btn btn-primary" %>
-    <% end %>
-    <%= link_to "削除する", deck_path(@deck), method: :delete, class: "item-delete-link" %>
+        <%= f.submit "更新する", class: "btn btn-primary" %>
+      <% end %>
+      <%= link_to "削除する", deck_path(@deck), method: :delete, class: "item-delete-link" %>
+    </div>
   </div>
 </div>
+

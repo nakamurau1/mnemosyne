@@ -6,18 +6,20 @@
   <% end %>
 </script>
 
-<div id="toast" class="toast" data-delay="2000" role="status">
-  <div class="toast-body">
-    次の復習日は <span id="js-next-review-datetime"></span> です
+<div class="container">
+  <div id="toast" class="toast" data-delay="2000" role="status">
+    <div class="toast-body">
+      次の復習日は <span id="js-next-review-datetime"></span> です
+    </div>
   </div>
+  <%= link_to "", new_item_path(current_user), class: "fas fa-plus-circle new-item-button text-dark", data: {container: "body", toggle: "popover", placement: "top", content: "ここから覚えたい項目を登録しましょう！"} %>
+  <% if @items.present? %>
+    <%= render 'shared/item' %>
+  <% else %>
+    <div class="empty-msg">
+      <h2>復習カードはありません</h2>
+      <i class="far fa-check-circle check-mark"></i>
+      <%= render 'shared/share_button' %>
+    </div>
+  <% end %>
 </div>
-<%= link_to "", new_item_path(current_user), class: "fas fa-plus-circle new-item-button text-dark", data: {container: "body", toggle: "popover", placement: "top", content: "ここから覚えたい項目を登録しましょう！"} %>
-<% if @items.present? %>
-  <%= render 'shared/item' %>
-<% else %>
-  <div class="empty-msg">
-    <h2>復習カードはありません</h2>
-    <i class="far fa-check-circle check-mark"></i>
-    <%= render 'shared/share_button' %>
-  </div>
-<% end %>

@@ -10,19 +10,39 @@ $gray-medium-light: #eaeaea;
 
 /* top */
 .top-content {
-  background: white;
+  h1 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 40px;
+    font-weight: 300;
+    text-align: left;
+  }
+  p {
+    font-size: 17px;
+    text-align: center;
+    font-weight: normal;
+    color: gray;
+  }
 }
 
-.overview {
+.top-content-middle {
   text-align: center;
+  h2 {
+    font-weight: 300;
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+  p {
+    font-size: 17px;
+    text-align: center;
+    font-weight: normal;
+    color: gray;
+    margin-bottom: 30px;
+  }
 }
 
 .top-image {
   margin-bottom: 30px;
-}
-
-.nayami-sample {
-  font-size: 0.9rem;
 }
 
 .empty-msg {
@@ -51,7 +71,18 @@ html {
 }
 
 body {
-  padding-top: 80px;
+  padding-top: 65px;
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+.jumbotron-fluid {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+
 }
 
 section {

@@ -1,25 +1,27 @@
 <% provide(:title, "設定") %>
-<h1>設定を変更する</h1>
+<div class="container">
+  <h1>設定を変更する</h1>
 
-<div class="row">
-  <div class="col-md-12">
-    <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= form_for(@user) do |f| %>
+        <%= render 'shared/error_messages' %>
 
-      <%= f.label :name, "ユーザー名" %>
-      <%= f.text_field :name, class: 'form-control' %>
+        <%= f.label :name, "ユーザー名" %>
+        <%= f.text_field :name, class: 'form-control' %>
 
-      <%= f.label :password, "パスワード" %>
-      <%= f.password_field :password, class: 'form-control' %>
+        <%= f.label :password, "パスワード" %>
+        <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :password_confirmation, "パスワード（確認）" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
+        <%= f.label :password_confirmation, "パスワード（確認）" %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= f.label :notice, "復習のメール通知" %>
-      <%= f.select :notice, [%w[朝9時に通知 9], %w[夜19時に通知 19], ["通知しない", nil]], {}, {class: "form-control"} %>
+        <%= f.label :notice, "復習のメール通知" %>
+        <%= f.select :notice, [%w[朝9時に通知 9], %w[夜19時に通知 19], ["通知しない", nil]], {}, {class: "form-control"} %>
 
-      <%= f.submit "設定を更新する", class: "btn btn-primary" %>
-      <%= link_to "ログアウト", logout_path, method: :delete, class: "btn btn-link" %>
-    <% end %>
+        <%= f.submit "設定を更新する", class: "btn btn-primary" %>
+        <%= link_to "ログアウト", logout_path, method: :delete, class: "btn btn-link" %>
+      <% end %>
+    </div>
   </div>
 </div>

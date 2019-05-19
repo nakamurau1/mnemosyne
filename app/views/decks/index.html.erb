@@ -1,7 +1,9 @@
 <% provide(:title, 'デッキ一覧') %>
-<h1>あなたのデッキ一覧</h1>
-<% if @decks.any? %>
-  <%= render @decks %>
+<div class="container">
+  <h1>あなたのデッキ一覧</h1>
+  <% if @decks.any? %>
+    <%= render @decks %>
 
-  <%= will_paginate @decks, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
-<% end %>
+    <%= will_paginate @decks, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+  <% end %>
+</div>
