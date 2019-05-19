@@ -34,7 +34,8 @@ class UsersController < ApplicationController
 
   def update 
     @user = User.find_by(id: params[:id])
-    if @user.update_attributes(_user_params)
+    user_params = _user_params.except(:email)
+    if @user.update_attributes(user_params)
       flash[:success] = "プロフィールが更新されました！"
       redirect_to @user
     else
