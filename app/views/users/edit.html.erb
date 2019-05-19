@@ -9,11 +9,6 @@
       <%= f.label :name, "ユーザー名" %>
       <%= f.text_field :name, class: 'form-control' %>
 
-      <% unless @user.activated? %>
-        <%= f.label :email, "Emailアドレス" %>
-        <%= f.email_field :email, class: 'form-control' %>
-      <% end %>
-
       <%= f.label :password, "パスワード" %>
       <%= f.password_field :password, class: 'form-control' %>
 
