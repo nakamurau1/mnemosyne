@@ -25,6 +25,7 @@ class SessionsController < ApplicationController
     if cookies[:remember_token].blank?
       user = User.create(name: "ゲストユーザー#{Time.zone.now.strftime("%Y%m%d%H%m%s")}")
       remember(user)
+      UserMailer.user_registered(guest: true).deliver_now
     end
     redirect_to root_path
   end

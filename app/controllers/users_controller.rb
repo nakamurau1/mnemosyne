@@ -21,6 +21,7 @@ class UsersController < ApplicationController
     end
     if @user.save
       UserMailer.account_activation(@user).deliver_now
+      UserMailer.user_registered.deliver_now
       flash[:info] = "アカウント有効化メールを確認してください"
       redirect_to root_url
     else

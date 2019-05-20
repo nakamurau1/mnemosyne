@@ -14,4 +14,9 @@ class UserMailer < ApplicationMailer
     @review_items_count = review_items_count
     mail to: user.email, subject: "【お知らせ】復習が必要な項目があります"
   end
+
+  def user_registered(guest: false)
+    @guest = guest
+    mail to: "fyuichi@gmail.com", subject: "【暗記くん】ゲストログインされました"
+  end
 end
