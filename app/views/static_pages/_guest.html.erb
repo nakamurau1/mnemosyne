@@ -5,31 +5,35 @@
     覚えたいことを登録すれば、ソフトウェアのように知識をインストールできる。
   </p>
   <br/>
-  <div class="guest-login-btn">
-    <%= button_to "とりあえず使う", guest_login_path, class: "btn btn-lg btn-success rounded-pill", rel: "nofollow" %>
+  <div class="login-buttons">
+    <div class="guest-login-btn">
+      <%= button_to "とりあえず使う", guest_login_path, class: "btn btn-lg btn-success rounded-pill", rel: "nofollow" %>
+    </div>
+    <%= link_to "無料で会員登録", signup_path, class: "btn btn-lg btn-primary rounded-pill" %>
   </div>
-  <%= link_to "無料で会員登録", signup_path, class: "btn btn-lg btn-primary rounded-pill" %>
 </div>
 <div class="top-content-middle container">
   <h2>
-    暗記くんとは
+    使い方は簡単です
+  </h2>
+  <%= image_tag('https://s3-ap-northeast-1.amazonaws.com/ankikun-images/operating.gif', class: "operating-gif img-fluid") %>
+</div>
+<div class="top-content-middle jumbotron jumbotron-fluid">
+  <h2>
+    忘却曲線に基づいたアルゴリズム
   </h2>
   <p>
     暗記くんは忘却曲線に基づいた最適なタイミングで通知してくれます。通知されたタイミングで復習すれば簡単に知識を定着させることが出来ます。
   </p>
   <%= image_tag('https://s3-ap-northeast-1.amazonaws.com/ankikun-images/curve.png', class: "img-fluid") %>
 </div>
-<div class="top-content-middle jumbotron jumbotron-fluid">
-  <h2>
-    使い方は簡単です
-  </h2>
-  <%= image_tag('https://s3-ap-northeast-1.amazonaws.com/ankikun-images/operating.gif', class: "operating-gif img-fluid") %>
-</div>
 <div class="center top-content-middle">
   <h1>無料で利用できます</h1>
   <br/>
-  <div class="guest-login-btn">
-    <%= button_to "とりあえず使う", guest_login_path, class: "btn btn-lg btn-success rounded-pill", rel: "nofollow" %>
+  <div class="login-buttons">
+    <div class="guest-login-btn">
+      <%= button_to "とりあえず使う", guest_login_path, class: "btn btn-lg btn-success rounded-pill", rel: "nofollow" %>
+    </div>
+    <%= link_to "無料で会員登録", signup_path, class: "btn btn-lg btn-primary rounded-pill" %>
   </div>
-  <%= link_to "無料で会員登録", signup_path, class: "btn btn-lg btn-primary rounded-pill" %>
 </div>
