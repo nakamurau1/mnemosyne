@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   resources :decks
   get '/public_decks', to: 'decks#public_index'
   post '/copy',        to: 'decks#copy'
+  post '/stop_learning', to: 'decks#stop'
+  post '/resume_learning', to: 'decks#resume'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190430121004) do
+ActiveRecord::Schema.define(version: 20190602053748) do
 
   create_table "decks", force: :cascade do |t|
     t.integer "user_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20190430121004) do
     t.boolean "public"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "stop"
     t.index ["user_id", "created_at"], name: "index_decks_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_decks_on_user_id"
   end

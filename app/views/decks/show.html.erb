@@ -4,8 +4,21 @@
   <div class="deck-header">
     <div class="deck-title">
       <%= @deck.title %>
+    </div>
+    <div class="deck-menu">
       <% if !current_user?(@deck.user) %>
         <%= button_to "学習する", copy_path(id: @deck.id), class: "btn btn-success btn-sm copy-btn" %>
+      <% else %>
+        <div class="dropdown">
+          <i class="fas fa-ellipsis-h" data-toggle="dropdown"></i>
+          <div class="dropdown-menu dropdown-menu-right">
+            <% if(@deck.stop) %>
+              <%= button_to "学習を再開する", resume_learning_path(id: @deck.id), class: "dropdown-item" %>
+            <% else %>
+              <%= button_to "学習を中止する", stop_learning_path(id: @deck.id), class: "dropdown-item" %>
+            <% end %>
+          </div>
+        </div>
       <% end %>
     </div>
     <div class="deck-description">

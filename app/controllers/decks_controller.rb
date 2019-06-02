@@ -1,6 +1,6 @@
 class DecksController < ApplicationController
-  before_action :_logged_in_user, only: [:index, :new, :create, :edit, :update, :destroy, :copy]
-  before_action :_correct_user, only: [:edit, :update, :destroy]
+  before_action :_logged_in_user, only: [:index, :new, :create, :edit, :update, :destroy, :copy, :stop, :resume]
+  before_action :_correct_user, only: [:edit, :update, :destroy, :stop, :resume]
 
   def index
     @decks = current_user.decks.paginate(page: params[:page])
@@ -58,6 +58,22 @@ class DecksController < ApplicationController
       flash[:danger] = "コピーできませんでした"
     end
     redirect_to @deck
+  end
+
+  def stop
+    @deck = Deck.find(params[:id])
+    return if @deck.nil? || @deck.stop?
+    @deck.stop_learning
+  ensure
+    return redirect_to @deck
+  end
+
+  def resume
+    @deck = Deck.find(params[:id])
+    return if @deck.nil? || !@deck.stop?
+    @deck.resume_learning
+  ensure
+    return redirect_to @deck
   end
 
   private
