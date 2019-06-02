@@ -10,7 +10,7 @@
         <%= button_to "学習する", copy_path(id: @deck.id), class: "btn btn-success btn-sm copy-btn" %>
       <% else %>
         <div class="dropdown">
-          <i class="fas fa-ellipsis-h" data-toggle="dropdown"></i>
+          <i class="fas fa-ellipsis-h deck-menu-button" data-toggle="dropdown"></i>
           <div class="dropdown-menu dropdown-menu-right">
             <% if(@deck.stop) %>
               <%= button_to "学習を再開する", resume_learning_path(id: @deck.id), class: "dropdown-item" %>
