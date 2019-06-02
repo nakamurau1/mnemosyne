@@ -37,7 +37,10 @@
     <% if current_user?(item.user) %>
       <%= link_to "編集", edit_item_path(item), class: "far fa-edit edit-menu" %>
       <span class="timestamp">
-        次回復習日：<%= item.next_review_timing_str %>
+        <% next_review_time = item.next_review_timing_str %>
+        <% if next_review_time.present? %>
+          次回復習日：<%= next_review_time %>
+        <% end %>
       </span>
     <% end %>
   </div>

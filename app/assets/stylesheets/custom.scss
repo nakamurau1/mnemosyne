@@ -390,10 +390,15 @@ a.new-item-button {
 .deck-header {
   .deck-title {
     font-size: 1.2rem;
+    float: left;
+  }
+  .deck-menu {
+    float: right;
   }
   .deck-description {
     font-size: 0.8rem;
     color: gray;
+    clear: left;
   }
   .deck-atr {
     font-size: 0.7rem;

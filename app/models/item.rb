@@ -66,7 +66,7 @@ class Item < ApplicationRecord
 
   # 日付まで表示する
   def next_review_timing_str
-    self.next_review_datetime.strftime("%Y/%m/%d")
+    self.next_review_datetime&.strftime("%Y/%m/%d")
   end
 
   def set_default_value

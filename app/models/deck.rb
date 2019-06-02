@@ -29,5 +29,24 @@ class Deck < ApplicationRecord
   def updated_at_str
     self.updated_at.strftime("%Y/%m/%d")
   end
+
+  def stop_learning
+    self.items.each do |item|
+      item.next_review_datetime = nil
+      item.save(validate: false)
+    end
+    self.stop = true
+    self.save(validate: false)
+  end
+
+  def resume_learning
+    self.items.each do |item|
+      item.next_review_datetime = Time.zone.now
+      item.save(validate: false)
+    end
+    self.stop = false
+    self.save(validate: false)
+  end
+
   private
 end
